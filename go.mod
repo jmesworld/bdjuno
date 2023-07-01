@@ -6,8 +6,8 @@ require (
 	github.com/CosmWasm/wasmd v0.29.2
 	github.com/cosmos/cosmos-sdk v0.45.11
 	// github.com/cosmos/gaia/v7 v7.0.2
-	// github.com/forbole/juno/v3 v3.4.0
-	github.com/forbole/juno/v4 v4.1.0
+	github.com/forbole/juno/v3 v3.4.0
+	// github.com/forbole/juno/v4 v4.1.0
 	github.com/go-co-op/gocron v1.19.0
 	github.com/gogo/protobuf v1.3.3
 	github.com/jmoiron/sqlx v1.3.5
