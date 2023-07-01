@@ -44,8 +44,8 @@ import (
 	wasmsource "github.com/forbole/bdjuno/v4/modules/wasm/source"
 	localwasmsource "github.com/forbole/bdjuno/v4/modules/wasm/source/local"
 	remotewasmsource "github.com/forbole/bdjuno/v4/modules/wasm/source/remote"
-	persistenceapp "github.com/persistenceOne/persistenceCore/v6/app"
-	persistenceappparams "github.com/persistenceOne/persistenceCore/v6/app/params"
+	JmesApp "github.com/jmesworld/core/v2/app"
+	jmesappparams "github.com/jmesworld/core/v2/app/params"
 )
 
 type Sources struct {
@@ -76,7 +76,7 @@ func buildLocalSources(cfg *local.Details, encodingConfig *params.EncodingConfig
 		return nil, err
 	}
 
-	persistenceApp := persistenceapp.NewApplication("", persistenceappparams.MakeEncodingConfig(), nil,
+	JmesApp := JmesApp.NewApplication("", jmesappparams.MakeEncodingConfig(), nil,
 		log.NewTMLogger(log.NewSyncWriter(os.Stdout)), source.StoreDB, nil, true, 0, map[int64]bool{},
 		cfg.Home, []wasmtypes.ProposalType{}, simapp.EmptyAppOptions{}, []wasmkeeper.Option{}, nil,
 	)
@@ -87,13 +87,13 @@ func buildLocalSources(cfg *local.Details, encodingConfig *params.EncodingConfig
 	)
 
 	sources := &Sources{
-		BankSource:     localbanksource.NewSource(source, banktypes.QueryServer(persistenceApp.BankKeeper)),
+		BankSource:     localbanksource.NewSource(source, banktypes.QueryServer(JmesApp.BankKeeper)),
 		DistrSource:    localdistrsource.NewSource(source, distrtypes.QueryServer(app.DistrKeeper)),
-		GovSource:      localgovsource.NewSource(source, govtypes.QueryServer(persistenceApp.GovKeeper)),
-		MintSource:     localmintsource.NewSource(source, minttypes.QueryServer(persistenceApp.MintKeeper)),
-		SlashingSource: localslashingsource.NewSource(source, slashingtypes.QueryServer(persistenceApp.SlashingKeeper)),
-		StakingSource:  localstakingsource.NewSource(source, stakingkeeper.Querier{Keeper: *persistenceApp.StakingKeeper}),
-		WasmSource:     localwasmsource.NewSource(source, wasmkeeper.Querier(persistenceApp.WasmKeeper)),
+		GovSource:      localgovsource.NewSource(source, govtypes.QueryServer(JmesApp.GovKeeper)),
+		MintSource:     localmintsource.NewSource(source, minttypes.QueryServer(JmesApp.MintKeeper)),
+		SlashingSource: localslashingsource.NewSource(source, slashingtypes.QueryServer(JmesApp.SlashingKeeper)),
+		StakingSource:  localstakingsource.NewSource(source, stakingkeeper.Querier{Keeper: *JmesApp.StakingKeeper}),
+		WasmSource:     localwasmsource.NewSource(source, wasmkeeper.Querier(JmesApp.WasmKeeper)),
 	}
 
 	// Mount and initialize the stores
