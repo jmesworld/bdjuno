@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/forbole/bdjuno/v4/modules/actions"
+	"github.com/forbole/bdjuno/v3/modules/actions"
 
 	parsecmdtypes "github.com/forbole/juno/v3/cmd/parse/types"
 
 	"gopkg.in/yaml.v3"
 
-	junov4 "github.com/forbole/juno/v3/cmd/migrate/v4"
+	junov4 "github.com/forbole/juno/v3/cmd/migrate/v"
 	"github.com/forbole/juno/v3/types/config"
 )
 
