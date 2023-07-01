@@ -17,7 +17,7 @@ import (
 	"github.com/forbole/bdjuno/v4/modules"
 
 	"github.com/cosmos/cosmos-sdk/simapp"
-	persistenceapp "github.com/persistenceOne/persistenceCore/v6/app"
+	JmesApp "github.com/jmesworld/core/v2/app"
 )
 
 func main() {
@@ -57,7 +57,7 @@ func main() {
 func getBasicManagers() []module.BasicManager {
 	return []module.BasicManager{
 		simapp.ModuleBasics,
-		persistenceapp.ModuleBasics,
+		JmesApp.ModuleBasics,
 	}
 }
 

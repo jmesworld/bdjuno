@@ -13,7 +13,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/lib/pq v1.10.7
 	github.com/pelletier/go-toml v1.9.5
-	github.com/persistenceOne/persistenceCore/v6 v6.1.0
+	github.com/jmesworld/core/v2 feat/winning_grants
 	github.com/prometheus/client_golang v1.14.0
 	github.com/proullon/ramsql v0.0.0-20181213202341-817cee58a244
 	github.com/rs/zerolog v1.29.0
@@ -138,6 +138,13 @@ require (
 )
 
 replace (
+    github.com/cosmos/cosmos-sdk => github.com/jmesworld/cosmos-sdk v0.0.99-alpha.5
+	github.com/cosmos/iavl => github.com/cosmos/iavl v0.17.3
+	github.com/cosmos/ledger-cosmos-go => github.com/terra-money/ledger-terra-go v0.11.2
+	github.com/tendermint/tendermint => github.com/jmesworld/tendermint v0.99.0-alpha.2
+	github.com/tendermint/tm-db => github.com/terra-money/tm-db v0.6.7-terra.1
+	google.golang.org/grpc => google.golang.org/grpc v1.33.2
+	
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
 	github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.7.7
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
